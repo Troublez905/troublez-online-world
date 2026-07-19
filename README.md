@@ -5,6 +5,7 @@ Bold landing page for Troublez Online World, a digital street-culture hub connec
 ## Live Site
 
 Netlify project: `troublez-online-world`
+Production URL: https://troublez-online-world.netlify.app
 
 ## Files
 

@@ -3,144 +3,940 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Troublez Online World</title>
     <meta
       name="description"
-      content="Troublez Online World is a launch hub for 404 KiDZ, Branded Worldwide, WallRank, Neon City, and the next wave of digital street culture."
+      content="Troublez Online World is a digital street-culture hub for fashion, music, youth creativity, rankings, local scenes, and future online worlds."
     />
-    <title>Troublez Online World</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
+    <style>
+      :root {
+        --black: #030303;
+        --ink: #090909;
+        --white: #f7f3ea;
+        --paper: #fffdf4;
+        --red: #ff1717;
+        --blue: #1f7cff;
+        --green: #84ff12;
+        --yellow: #ffe600;
+        --chrome: #c4c9cf;
+        --muted: #9b9b92;
+        --line: rgba(255, 255, 255, 0.18);
+        --font-display: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+        --font-body: "Bahnschrift", "DIN Condensed", "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        background: var(--black);
+      }
+
+      body {
+        margin: 0;
+        color: var(--white);
+        background:
+          radial-gradient(circle at 15% 8%, rgba(255, 23, 23, 0.22), transparent 28rem),
+          radial-gradient(circle at 88% 18%, rgba(31, 124, 255, 0.2), transparent 32rem),
+          linear-gradient(180deg, #050505 0%, #0a0a0a 42%, #020202 100%);
+        font-family: var(--font-body);
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: 10;
+        pointer-events: none;
+        background:
+          repeating-linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0.045) 0,
+            rgba(255, 255, 255, 0.045) 1px,
+            transparent 1px,
+            transparent 5px
+          ),
+          linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.04), transparent);
+        mix-blend-mode: overlay;
+        opacity: 0.4;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .site-shell {
+        min-height: 100vh;
+        position: relative;
+      }
+
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 8;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        min-height: 76px;
+        padding: 0 28px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(3, 3, 3, 0.76);
+        backdrop-filter: blur(16px);
+      }
+
+      .brand-mark {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-family: var(--font-display);
+        font-size: clamp(1.2rem, 2.4vw, 2rem);
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .brand-mark .crown {
+        color: var(--red);
+        font-size: 1.2em;
+        transform: rotate(-11deg);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: clamp(14px, 2.4vw, 34px);
+        color: var(--chrome);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .nav-links a {
+        position: relative;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 100%;
+        bottom: -9px;
+        height: 2px;
+        background: var(--red);
+        transition: right 180ms ease;
+      }
+
+      .nav-links a:hover::after {
+        right: 0;
+      }
+
+      .signal {
+        justify-self: end;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border-left: 1px solid rgba(255, 255, 255, 0.16);
+        padding-left: 22px;
+        color: var(--green);
+        font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+        font-size: 0.83rem;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .signal::after {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--green);
+        box-shadow: 0 0 14px var(--green);
+        animation: pulse 1.2s steps(2, end) infinite;
+      }
+
+      .hero {
+        position: relative;
+        min-height: 100svh;
+        display: grid;
+        align-items: end;
+        padding: 122px 28px 32px;
+        isolation: isolate;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -3;
+        background-image: url("assets/troublez-hero-city.png");
+        background-size: cover;
+        background-position: center;
+        filter: saturate(1.18) contrast(1.07);
+        transform: scale(1.03);
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        background:
+          linear-gradient(90deg, rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.45) 48%, rgba(0, 0, 0, 0.18)),
+          linear-gradient(0deg, #030303 0%, transparent 28%, rgba(0, 0, 0, 0.08) 68%, #030303 100%);
+      }
+
+      .hero-grid {
+        position: absolute;
+        inset: 76px 0 0;
+        z-index: -1;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+        background-size: 72px 72px;
+        mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.75), transparent 70%);
+      }
+
+      .hero-content {
+        width: min(1180px, 100%);
+        margin: 0 auto;
+      }
+
+      h1 {
+        margin: 0;
+        max-width: 1080px;
+        font-family: var(--font-display);
+        font-size: clamp(5.6rem, 17vw, 18.5rem);
+        line-height: 0.72;
+        letter-spacing: 0;
+        text-transform: uppercase;
+        text-wrap: balance;
+        color: var(--paper);
+        text-shadow:
+          0.035em 0 var(--red),
+          -0.022em 0 var(--blue),
+          0 0 42px rgba(255, 255, 255, 0.16);
+      }
+
+      .hero-subline {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 24px;
+        align-items: end;
+        margin-top: clamp(20px, 4vw, 44px);
+      }
+
+      .hero-copy {
+        max-width: 660px;
+        color: var(--paper);
+        font-size: clamp(1rem, 1.7vw, 1.35rem);
+        line-height: 1.45;
+        font-weight: 650;
+      }
+
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 24px;
+      }
+
+      .btn {
+        position: relative;
+        display: inline-grid;
+        grid-auto-flow: column;
+        align-items: center;
+        gap: 14px;
+        min-height: 54px;
+        padding: 0 18px 0 22px;
+        border: 1px solid var(--paper);
+        background: var(--paper);
+        color: var(--black);
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        transition:
+          transform 180ms ease,
+          box-shadow 180ms ease,
+          background 180ms ease;
+        clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+      }
+
+      .btn span {
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        background: var(--red);
+        color: var(--white);
+      }
+
+      .btn:hover {
+        transform: translate(-3px, -3px);
+        box-shadow: 7px 7px 0 var(--red);
+      }
+
+      .btn.secondary {
+        background: transparent;
+        color: var(--paper);
+      }
+
+      .btn.secondary span {
+        background: var(--blue);
+      }
+
+      .status-card {
+        width: min(320px, 100%);
+        padding: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        background: rgba(0, 0, 0, 0.58);
+        box-shadow: inset 0 0 0 1px rgba(255, 23, 23, 0.2);
+      }
+
+      .status-card strong {
+        display: flex;
+        justify-content: space-between;
+        color: var(--red);
+        font-family: ui-monospace, Consolas, monospace;
+        font-size: 0.75rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .status-bars {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 5px;
+        align-items: end;
+        height: 54px;
+        margin-top: 18px;
+      }
+
+      .status-bars i {
+        display: block;
+        background: var(--green);
+        box-shadow: 0 0 10px rgba(132, 255, 18, 0.75);
+        animation: equalize 1.1s infinite steps(3, end);
+      }
+
+      .status-bars i:nth-child(1) { height: 26%; }
+      .status-bars i:nth-child(2) { height: 52%; animation-delay: 100ms; }
+      .status-bars i:nth-child(3) { height: 34%; animation-delay: 200ms; }
+      .status-bars i:nth-child(4) { height: 74%; animation-delay: 300ms; }
+      .status-bars i:nth-child(5) { height: 45%; animation-delay: 400ms; }
+      .status-bars i:nth-child(6) { height: 92%; animation-delay: 500ms; }
+
+      .ticker {
+        display: flex;
+        overflow: hidden;
+        border-block: 2px solid var(--green);
+        background: #050505;
+        color: var(--green);
+        font-family: var(--font-display);
+        font-size: clamp(1rem, 2vw, 1.55rem);
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .ticker-track {
+        display: flex;
+        gap: 28px;
+        min-width: max-content;
+        padding: 10px 14px;
+        animation: ticker 18s linear infinite;
+      }
+
+      .ticker span {
+        color: var(--yellow);
+      }
+
+      .world-map {
+        position: relative;
+        padding: clamp(54px, 8vw, 110px) 28px;
+      }
+
+      .zone {
+        position: relative;
+        width: min(1180px, 100%);
+        margin: 0 auto clamp(22px, 4vw, 40px);
+        display: grid;
+        grid-template-columns: minmax(0, 0.88fr) minmax(280px, 0.52fr);
+        gap: clamp(18px, 3vw, 36px);
+        align-items: stretch;
+        min-height: 420px;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.09), transparent 32%),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.04), transparent);
+        clip-path: polygon(0 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%);
+        overflow: hidden;
+      }
+
+      .zone::before {
+        content: "";
+        position: absolute;
+        inset: -2px;
+        background:
+          repeating-linear-gradient(110deg, transparent 0 16px, rgba(255, 255, 255, 0.05) 17px 18px),
+          radial-gradient(circle at 70% 35%, color-mix(in srgb, var(--zone-color), transparent 60%), transparent 24rem);
+        opacity: 0.82;
+        pointer-events: none;
+      }
+
+      .zone::after {
+        content: "";
+        position: absolute;
+        left: -4%;
+        right: -4%;
+        bottom: -7px;
+        height: 22px;
+        background:
+          linear-gradient(90deg, transparent, var(--zone-color), transparent),
+          repeating-linear-gradient(90deg, var(--paper) 0 32px, transparent 32px 58px);
+        transform: rotate(-1.1deg);
+        opacity: 0.85;
+      }
+
+      .zone-main,
+      .zone-panel {
+        position: relative;
+        z-index: 1;
+      }
+
+      .zone-main {
+        padding: clamp(28px, 5vw, 58px);
+      }
+
+      .zone-symbol {
+        color: var(--zone-color);
+        font-family: var(--font-display);
+        font-size: clamp(3.2rem, 7vw, 7rem);
+        line-height: 0.8;
+      }
+
+      .zone h2 {
+        margin: 8px 0 0;
+        font-family: var(--font-display);
+        font-size: clamp(3.4rem, 8.2vw, 9rem);
+        line-height: 0.8;
+        text-transform: uppercase;
+        color: var(--paper);
+      }
+
+      .zone h3 {
+        margin: 12px 0 22px;
+        color: var(--zone-color);
+        font-size: clamp(1.1rem, 2vw, 1.7rem);
+        font-style: italic;
+        font-weight: 950;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .zone p {
+        max-width: 520px;
+        color: #dedbd2;
+        font-size: clamp(1rem, 1.5vw, 1.18rem);
+        line-height: 1.48;
+      }
+
+      .zone-panel {
+        align-self: stretch;
+        display: grid;
+        align-content: end;
+        padding: clamp(24px, 4vw, 42px);
+        background:
+          linear-gradient(180deg, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.84)),
+          var(--zone-image);
+        background-size: cover;
+        background-position: center;
+        border-left: 1px solid color-mix(in srgb, var(--zone-color), transparent 45%);
+        min-height: 330px;
+      }
+
+      .mini-panel {
+        justify-self: end;
+        width: min(290px, 100%);
+        padding: 16px;
+        border: 1px solid color-mix(in srgb, var(--zone-color), white 14%);
+        background: rgba(0, 0, 0, 0.7);
+        box-shadow:
+          0 0 24px color-mix(in srgb, var(--zone-color), transparent 74%),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+      }
+
+      .mini-panel b {
+        color: var(--zone-color);
+        font-family: ui-monospace, Consolas, monospace;
+        font-size: 0.76rem;
+        text-transform: uppercase;
+      }
+
+      .metric {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        padding-top: 10px;
+        color: var(--chrome);
+        font-family: ui-monospace, Consolas, monospace;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+      }
+
+      .metric strong {
+        color: var(--paper);
+      }
+
+      .zone:hover {
+        transform: translateY(-4px);
+        transition: transform 220ms ease;
+      }
+
+      .zone:hover .mini-panel {
+        animation: glitch 520ms steps(2, end);
+      }
+
+      .kid {
+        --zone-color: var(--red);
+        --zone-image:
+          radial-gradient(circle at 72% 26%, rgba(255, 23, 23, 0.32), transparent 14rem),
+          linear-gradient(135deg, rgba(255, 255, 255, 0.12), transparent),
+          repeating-linear-gradient(20deg, #141414 0 14px, #050505 14px 28px);
+      }
+
+      .brand {
+        --zone-color: var(--blue);
+        --zone-image:
+          radial-gradient(circle at 50% 15%, rgba(31, 124, 255, 0.38), transparent 14rem),
+          linear-gradient(145deg, rgba(255, 255, 255, 0.12), transparent),
+          repeating-linear-gradient(90deg, #111 0 42px, #060606 42px 84px);
+      }
+
+      .rank {
+        --zone-color: var(--green);
+        --zone-image:
+          radial-gradient(circle at 30% 45%, rgba(132, 255, 18, 0.35), transparent 13rem),
+          linear-gradient(45deg, rgba(255, 255, 255, 0.08), transparent),
+          repeating-linear-gradient(135deg, #111 0 2px, #030303 2px 18px);
+      }
+
+      .neon {
+        --zone-color: var(--blue);
+        --zone-image:
+          radial-gradient(circle at 52% 40%, rgba(31, 124, 255, 0.48), transparent 14rem),
+          radial-gradient(circle at 82% 20%, rgba(255, 23, 23, 0.25), transparent 12rem),
+          repeating-linear-gradient(115deg, #121212 0 18px, #040404 18px 38px);
+      }
+
+      .network {
+        width: min(1180px, 100%);
+        margin: clamp(48px, 8vw, 98px) auto;
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: clamp(24px, 5vw, 64px);
+        align-items: center;
+      }
+
+      .network h2 {
+        margin: 0;
+        font-family: var(--font-display);
+        font-size: clamp(3.2rem, 7vw, 8rem);
+        line-height: 0.84;
+        text-transform: uppercase;
+      }
+
+      .network p {
+        color: #d7d4ca;
+        font-size: clamp(1rem, 1.4vw, 1.22rem);
+        line-height: 1.55;
+      }
+
+      .signal-board {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border: 1px solid var(--line);
+        background:
+          linear-gradient(90deg, rgba(255, 23, 23, 0.08), transparent),
+          rgba(255, 255, 255, 0.035);
+      }
+
+      .signal-tile {
+        min-height: 160px;
+        padding: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        display: grid;
+        align-content: space-between;
+      }
+
+      .signal-tile span {
+        color: var(--muted);
+        font-family: ui-monospace, Consolas, monospace;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+      }
+
+      .signal-tile strong {
+        color: var(--paper);
+        font-family: var(--font-display);
+        font-size: clamp(1.7rem, 3vw, 3rem);
+        line-height: 0.9;
+        text-transform: uppercase;
+      }
+
+      .footer {
+        display: grid;
+        grid-template-columns: 1.2fr repeat(3, 0.7fr);
+        gap: 24px;
+        padding: 42px 28px;
+        border-top: 2px solid var(--green);
+        background: #030303;
+      }
+
+      .footer h2 {
+        margin: 0;
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 4vw, 4.8rem);
+        line-height: 0.8;
+        text-transform: uppercase;
+      }
+
+      .footer p,
+      .footer a {
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.7;
+      }
+
+      .footer h4 {
+        margin: 0 0 12px;
+        color: var(--paper);
+        font-family: ui-monospace, Consolas, monospace;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+      }
+
+      .footer-links {
+        display: grid;
+        gap: 6px;
+      }
+
+      @keyframes ticker {
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      @keyframes pulse {
+        50% {
+          opacity: 0.35;
+        }
+      }
+
+      @keyframes equalize {
+        50% {
+          transform: scaleY(0.62);
+        }
+      }
+
+      @keyframes glitch {
+        0% { transform: translate(0); }
+        25% { transform: translate(5px, -2px); }
+        50% { transform: translate(-3px, 2px); }
+        75% { transform: translate(2px, 1px); }
+        100% { transform: translate(0); }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 1ms !important;
+          animation-iteration-count: 1 !important;
+          scroll-behavior: auto !important;
+          transition-duration: 1ms !important;
+        }
+      }
+
+      @media (max-width: 860px) {
+        .nav {
+          grid-template-columns: 1fr auto;
+          min-height: 68px;
+          padding: 0 18px;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .signal {
+          font-size: 0.72rem;
+          padding-left: 14px;
+        }
+
+        .hero {
+          padding: 100px 18px 24px;
+        }
+
+        .hero-subline,
+        .zone,
+        .network,
+        .footer {
+          grid-template-columns: 1fr;
+        }
+
+        .status-card {
+          width: 100%;
+        }
+
+        .zone-main {
+          padding: 28px 22px;
+        }
+
+        .zone-panel {
+          border-left: 0;
+          border-top: 1px solid color-mix(in srgb, var(--zone-color), transparent 45%);
+        }
+
+        .signal-board {
+          grid-template-columns: 1fr;
+        }
+
+        .network {
+          padding-inline: 18px;
+        }
+
+        .network h2 {
+          font-size: clamp(3rem, 16vw, 5.2rem);
+        }
+
+        .footer {
+          padding-inline: 18px;
+        }
+      }
+
+      @media (max-width: 520px) {
+        .brand-mark {
+          font-size: 1.02rem;
+        }
+
+        .signal {
+          max-width: 120px;
+        }
+
+        h1 {
+          font-size: clamp(4.4rem, 22vw, 6.8rem);
+        }
+
+        .cta-row {
+          display: grid;
+        }
+
+        .btn {
+          width: 100%;
+          justify-content: space-between;
+        }
+
+        .zone h2 {
+          font-size: clamp(3.2rem, 18vw, 5.4rem);
+        }
+      }
+    </style>
   </head>
   <body>
-    <div class="noise" aria-hidden="true"></div>
-    <header class="site-header">
-      <a class="brand-mark" href="#top" aria-label="Troublez Online World home">
-        <span>T</span>
-        <strong>Troublez Online World</strong>
-      </a>
-      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-      </button>
-      <nav class="site-nav" aria-label="Primary navigation">
-        <a href="#projects">Projects</a>
-        <a href="#manifesto">Manifesto</a>
-        <a href="#contact">Contact</a>
+    <div class="site-shell">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand-mark" href="#top" aria-label="Troublez Online World home">
+          <span class="crown">♕</span>
+          <span>Troublez</span>
+        </a>
+        <div class="nav-links">
+          <a href="#zones">Zones</a>
+          <a href="#wallrank">Ranks</a>
+          <a href="#wallrank">Maps</a>
+          <a href="#neon-city">Events</a>
+          <a href="#network">World</a>
+        </div>
+        <div class="signal" aria-label="Signal status online">Signal Online</div>
       </nav>
-    </header>
 
-    <main id="top">
-      <section class="hero">
-        <div class="hero-copy">
-          <p class="eyebrow">Live from the digital underground</p>
+      <header class="hero" id="top">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-content">
           <h1>Troublez Online World</h1>
-          <p class="lede">
-            A connected launchpad for streetwear, youth culture, creator tools, local rankings,
-            and the worlds being built next.
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="#projects">Enter the world</a>
-            <a class="button ghost" href="#contact">Build with us</a>
+          <div class="hero-subline">
+            <div>
+              <p class="hero-copy">
+                A connected street-culture universe for creators, crews, sound systems, ranked local scenes,
+                wearable identity, and the next online worlds built from the block up.
+              </p>
+              <div class="cta-row">
+                <a class="btn" href="#zones">Enter the Signal <span>→</span></a>
+                <a class="btn secondary" href="#network">Trace the Network <span>↘</span></a>
+              </div>
+            </div>
+            <aside class="status-card" aria-label="Live feed">
+              <strong><span>Live Feed</span><span>03:24 AM</span></strong>
+              <div class="status-bars" aria-hidden="true">
+                <i></i><i></i><i></i><i></i><i></i><i></i>
+              </div>
+            </aside>
           </div>
         </div>
+      </header>
 
-        <aside class="status-panel" aria-label="Network launch status">
-          <div class="panel-topline">
-            <span class="pulse"></span>
-            <span>Network status</span>
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker-track">
+          <b>Signal active</b><span>⚡</span><b>Build the future</b><span>⚡</span><b>Respect the culture</b><span>⚡</span><b>Protect the youth</b><span>⚡</span>
+          <b>Signal active</b><span>⚡</span><b>Build the future</b><span>⚡</span><b>Respect the culture</b><span>⚡</span><b>Protect the youth</b><span>⚡</span>
+        </div>
+      </div>
+
+      <main>
+        <section class="world-map" id="zones" aria-label="Troublez project zones">
+          <article class="zone kid" id="404-kidz">
+            <div class="zone-main">
+              <div class="zone-symbol">404</div>
+              <h2>404 KiDZ</h2>
+              <h3>Rebellious youth creativity</h3>
+              <p>
+                A playground for misfits, dreamers, builders, dancers, skaters, editors, and rule-breakers
+                creating outside the approved path.
+              </p>
+              <a class="btn secondary" href="#404-kidz">Explore 404 <span>→</span></a>
+            </div>
+            <div class="zone-panel">
+              <div class="mini-panel">
+                <b>Youth status</b>
+                <div class="metric"><span>Creators</span><strong>4.0K+</strong></div>
+                <div class="metric"><span>Projects</span><strong>1.2K+</strong></div>
+                <div class="metric"><span>Takeovers</span><strong>87</strong></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="zone brand" id="branded-worldwide">
+            <div class="zone-main">
+              <div class="zone-symbol">◎</div>
+              <h2>Branded Worldwide</h2>
+              <h3>Streetwear and identity</h3>
+              <p>
+                From local code to global signal. Wear the city, mark the crew, drop the uniform, and let
+                identity move like a broadcast.
+              </p>
+              <a class="btn secondary" href="#branded-worldwide">View collection <span>→</span></a>
+            </div>
+            <div class="zone-panel">
+              <div class="mini-panel">
+                <b>Brand status</b>
+                <div class="metric"><span>Countries</span><strong>32+</strong></div>
+                <div class="metric"><span>Stockists</span><strong>120+</strong></div>
+                <div class="metric"><span>Dropz</span><strong>24/7</strong></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="zone rank" id="wallrank">
+            <div class="zone-main">
+              <div class="zone-symbol">♛</div>
+              <h2>WallRank</h2>
+              <h3>Rankings, maps, local discovery</h3>
+              <p>
+                Streets decide. Artists, crews, stores, venues, and spots get mapped by the culture so the
+                city can find what is real.
+              </p>
+              <a class="btn secondary" href="#wallrank">Explore map <span>→</span></a>
+            </div>
+            <div class="zone-panel">
+              <div class="mini-panel">
+                <b>Rank status</b>
+                <div class="metric"><span>Users</span><strong>25K+</strong></div>
+                <div class="metric"><span>Submissions</span><strong>8.8K+</strong></div>
+                <div class="metric"><span>Top city</span><strong>Toronto</strong></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="zone neon" id="neon-city">
+            <div class="zone-main">
+              <div class="zone-symbol">ϟ</div>
+              <h2>Neon City</h2>
+              <h3>Music, visuals, events, experiments</h3>
+              <p>
+                The soundstage for the online world: sets, visuals, event signals, underground experiments,
+                and future-facing releases.
+              </p>
+              <a class="btn secondary" href="#neon-city">Enter Neon City <span>→</span></a>
+            </div>
+            <div class="zone-panel">
+              <div class="mini-panel">
+                <b>City status</b>
+                <div class="metric"><span>Events</span><strong>48</strong></div>
+                <div class="metric"><span>Visuals</span><strong>210</strong></div>
+                <div class="metric"><span>Next signal</span><strong>Tonight</strong></div>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="network" id="network">
+          <div>
+            <h2>The signal is everywhere</h2>
+            <p>
+              Troublez Online World is built to expand: rankings become maps, drops become identities,
+              scenes become portals, and local energy becomes a shared online territory.
+            </p>
+            <div class="cta-row">
+              <a class="btn" href="#top">Return to signal <span>↑</span></a>
+            </div>
           </div>
-          <dl>
-            <div>
-              <dt>Mode</dt>
-              <dd>Landing page online</dd>
-            </div>
-            <div>
-              <dt>Signal</dt>
-              <dd>905 connected</dd>
-            </div>
-            <div>
-              <dt>Launch queue</dt>
-              <dd>4 active projects</dd>
-            </div>
-          </dl>
-        </aside>
-      </section>
+          <div class="signal-board" aria-label="Platform pillars">
+            <div class="signal-tile"><span>01 / Culture</span><strong>Street signal</strong></div>
+            <div class="signal-tile"><span>02 / Platform</span><strong>Ranked worlds</strong></div>
+            <div class="signal-tile"><span>03 / Future</span><strong>Creator portals</strong></div>
+            <div class="signal-tile"><span>04 / Local</span><strong>Toronto</strong></div>
+            <div class="signal-tile"><span>05 / Local</span><strong>Hamilton</strong></div>
+            <div class="signal-tile"><span>06 / Status</span><strong>Online</strong></div>
+          </div>
+        </section>
+      </main>
 
-      <section class="ticker" aria-label="Launch ticker">
-        <span>404 KiDZ</span>
-        <span>Branded Worldwide</span>
-        <span>WallRank</span>
-        <span>Neon City</span>
-        <span>Troublez905</span>
-      </section>
-
-      <section class="section projects" id="projects">
-        <div class="section-heading">
-          <p class="eyebrow">World map</p>
-          <h2>Projects in orbit</h2>
-        </div>
-        <div class="project-grid">
-          <article class="project-card">
-            <span class="project-number">01</span>
-            <h3>404 KiDZ</h3>
-            <p>Youth-first creative culture, character worlds, drops, stories, and digital mischief.</p>
-            <a href="#contact">Activate</a>
-          </article>
-          <article class="project-card">
-            <span class="project-number">02</span>
-            <h3>Branded Worldwide</h3>
-            <p>Streetwear, identity systems, campaign energy, and merch built to move beyond the block.</p>
-            <a href="#contact">Launch</a>
-          </article>
-          <article class="project-card">
-            <span class="project-number">03</span>
-            <h3>WallRank</h3>
-            <p>A ranking and discovery platform for places, creators, brands, and scenes worth watching.</p>
-            <a href="#contact">Track</a>
-          </article>
-          <article class="project-card">
-            <span class="project-number">04</span>
-            <h3>Neon City</h3>
-            <p>A future-facing creative zone for music, visuals, events, digital goods, and experiments.</p>
-            <a href="#contact">Explore</a>
-          </article>
-        </div>
-      </section>
-
-      <section class="section manifesto" id="manifesto">
+      <footer class="footer">
         <div>
-          <p class="eyebrow">Manifesto</p>
-          <h2>Build the signal before the crowd arrives.</h2>
-        </div>
-        <p>
-          Troublez Online World is the front door for ideas with teeth: brand systems, local culture,
-          creator experiments, and online spaces that feel alive. The first move is simple: get the
-          world online, connect the projects, and keep shipping.
-        </p>
-      </section>
-
-      <section class="section launch" id="contact">
-        <div>
-          <p class="eyebrow">Next transmission</p>
-          <h2>Start the rollout.</h2>
+          <h2>Troublez Online World</h2>
           <p>
-            Use this page as the public landing zone while the full network grows behind it.
+            A digital street-culture hub connecting fashion, music, youth creativity, rankings,
+            local scenes, and future online worlds.
           </p>
         </div>
-        <a class="button primary" href="mailto:hello@troublezonline.world">hello@troublezonline.world</a>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <span>Troublez Online World</span>
-      <span>Built for the next drop.</span>
-    </footer>
-
-    <script src="script.js"></script>
+        <div>
+          <h4>Zones</h4>
+          <div class="footer-links">
+            <a href="#404-kidz">404 KiDZ</a>
+            <a href="#branded-worldwide">Branded Worldwide</a>
+            <a href="#wallrank">WallRank</a>
+            <a href="#neon-city">Neon City</a>
+          </div>
+        </div>
+        <div>
+          <h4>Signal</h4>
+          <div class="footer-links">
+            <a href="#network">Maps</a>
+            <a href="#network">Ranks</a>
+            <a href="#network">Scenes</a>
+            <a href="#network">Events</a>
+          </div>
+        </div>
+        <div>
+          <h4>Status</h4>
+          <p>Online<br />Stay locked in. The signal is everywhere.</p>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>

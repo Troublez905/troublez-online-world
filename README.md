@@ -1,14 +1,13 @@
 # Troublez Online World
 
-Static landing page for Troublez Online World.
+Bold landing page for Troublez Online World, a digital street-culture hub connecting fashion, music, youth creativity, ranking platforms, local scenes, and future online worlds.
+
+## Live Site
+
+Netlify project: `troublez-online-world`
 
 ## Files
 
-- `index.html` - page structure and content
-- `styles.css` - responsive visual design
-- `script.js` - mobile navigation behavior
-- `netlify.toml` - Netlify publish and header configuration
-
-## Deploy
-
-This is a static site. Netlify should publish the repository root with no build command.
+- `index.html` - complete responsive landing page
+- `assets/troublez-hero-city.png` - generated cyberpunk street-city hero artwork
+- `netlify.toml` - Netlify static deploy configuration

@@ -566,6 +566,44 @@
           rgba(255, 255, 255, 0.035);
       }
 
+      .network-visuals {
+        display: grid;
+        gap: 18px;
+      }
+
+      .world-poster {
+        position: relative;
+        margin: 0;
+        overflow: hidden;
+        border: 1px solid rgba(132, 255, 18, 0.48);
+        background: #050505;
+        box-shadow:
+          0 0 36px rgba(132, 255, 18, 0.12),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+      }
+
+      .world-poster::before {
+        content: "World Broadcast";
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        z-index: 1;
+        padding: 6px 9px;
+        border: 1px solid var(--red);
+        background: rgba(0, 0, 0, 0.78);
+        color: var(--green);
+        font-family: ui-monospace, Consolas, monospace;
+        font-size: 0.72rem;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .world-poster img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
       .signal-tile {
         min-height: 160px;
         padding: 18px;
@@ -705,6 +743,10 @@
 
         .signal-board {
           grid-template-columns: 1fr;
+        }
+
+        .network-visuals {
+          gap: 14px;
         }
 
         .network {
@@ -895,13 +937,22 @@
               <a class="btn" href="#top">Return to signal <span>↑</span></a>
             </div>
           </div>
-          <div class="signal-board" aria-label="Platform pillars">
-            <div class="signal-tile"><span>01 / Culture</span><strong>Street signal</strong></div>
-            <div class="signal-tile"><span>02 / Platform</span><strong>Ranked worlds</strong></div>
-            <div class="signal-tile"><span>03 / Future</span><strong>Creator portals</strong></div>
-            <div class="signal-tile"><span>04 / Local</span><strong>Toronto</strong></div>
-            <div class="signal-tile"><span>05 / Local</span><strong>Hamilton</strong></div>
-            <div class="signal-tile"><span>06 / Status</span><strong>Online</strong></div>
+          <div class="network-visuals">
+            <div class="signal-board" aria-label="Platform pillars">
+              <div class="signal-tile"><span>01 / Culture</span><strong>Street signal</strong></div>
+              <div class="signal-tile"><span>02 / Platform</span><strong>Ranked worlds</strong></div>
+              <div class="signal-tile"><span>03 / Future</span><strong>Creator portals</strong></div>
+              <div class="signal-tile"><span>04 / Local</span><strong>Toronto</strong></div>
+              <div class="signal-tile"><span>05 / Local</span><strong>Hamilton</strong></div>
+              <div class="signal-tile"><span>06 / Status</span><strong>Online</strong></div>
+            </div>
+            <figure class="world-poster">
+              <img
+                src="assets/troublez-world-poster.png"
+                alt="Troublez Online World poster showing the full street-culture landing page concept"
+                loading="lazy"
+              />
+            </figure>
           </div>
         </section>
       </main>

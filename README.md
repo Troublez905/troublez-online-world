@@ -10,5 +10,6 @@ Production URL: https://troublez-online-world.netlify.app
 ## Files
 
 - `index.html` - complete responsive landing page
-- `assets/troublez-hero-city.png` - generated cyberpunk street-city hero artwork
+- `assets/troublez-hero-city.png` - cyberpunk street-city hero artwork
+- `assets/troublez-world-poster.png` - full Troublez Online World visual poster
 - `netlify.toml` - Netlify static deploy configuration

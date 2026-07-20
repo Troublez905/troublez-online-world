@@ -534,6 +534,14 @@
           repeating-linear-gradient(115deg, #121212 0 18px, #040404 18px 38px);
       }
 
+      .research {
+        --zone-color: var(--yellow);
+        --zone-image:
+          radial-gradient(circle at 72% 22%, rgba(255, 230, 0, 0.28), transparent 14rem),
+          radial-gradient(circle at 28% 58%, rgba(255, 23, 23, 0.18), transparent 12rem),
+          repeating-linear-gradient(0deg, #101010 0 4px, #040404 4px 22px);
+      }
+
       .network {
         width: min(1180px, 100%);
         margin: clamp(48px, 8vw, 98px) auto;
@@ -695,7 +703,7 @@
 
       .gameplan-grid {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
         gap: 14px;
         margin-top: 28px;
       }
@@ -974,6 +982,7 @@
           <a href="#wallrank">Ranks</a>
           <a href="#wallrank">Maps</a>
           <a href="#neon-city">Events</a>
+          <a href="#research-desk">Research</a>
           <a href="#about">About</a>
           <a href="#gameplan">Gameplan</a>
           <a href="#network">World</a>
@@ -1098,6 +1107,27 @@
               </div>
             </div>
           </article>
+
+          <article class="zone research" id="research-desk">
+            <div class="zone-main">
+              <div class="zone-symbol">?</div>
+              <h2>Research Desk</h2>
+              <h3>Conspiracy Researcher app</h3>
+              <p>
+                A dark dossier-style research dashboard for browsing theories, reviewing timelines,
+                reading source-backed summaries, and saving investigation notes in the browser.
+              </p>
+              <a class="btn secondary" href="https://troublez905.github.io/Conspiracy-Researcher/" target="_blank" rel="noopener">Open app <span>→</span></a>
+            </div>
+            <div class="zone-panel">
+              <div class="mini-panel">
+                <b>Research status</b>
+                <div class="metric"><span>App</span><strong>Live</strong></div>
+                <div class="metric"><span>Mode</span><strong>Dossier</strong></div>
+                <div class="metric"><span>Storage</span><strong>Local</strong></div>
+              </div>
+            </div>
+          </article>
         </section>
 
         <section class="network" id="network">
@@ -1143,7 +1173,8 @@
               <p>
                 The goal is to turn separate ideas into one ecosystem. 404 KiDZ gives young creators a place to build.
                 Branded Worldwide gives the movement a uniform. WallRank maps what is active in the streets. Neon City
-                gives the world sound, visuals, events, and late-night energy.
+                gives the world sound, visuals, events, and late-night energy. Research Desk gives the network a place
+                to collect dossiers, timelines, and source-backed stories.
               </p>
               <p>
                 This site is the hub. As each project grows, Troublez Online World becomes the directory, launchpad,
@@ -1195,6 +1226,13 @@
                   <p>Tie Branded Worldwide and Neon City into clothing drops, visuals, music nights, and online experiences.</p>
                 </div>
               </article>
+              <article class="phase-card">
+                <div>
+                  <span>Phase 05 / Research layer</span>
+                  <h3>Dossiers</h3>
+                  <p>Connect the Conspiracy Researcher app as a side portal for categorized research, timelines, and saved notes.</p>
+                </div>
+              </article>
             </div>
 
             <div class="link-card-grid" aria-label="Project links">
@@ -1213,6 +1251,14 @@
                 </p>
                 <a class="btn secondary" href="#wallrank">View WallRank plan <span>→</span></a>
                 <small>Public site link pending</small>
+              </article>
+              <article class="link-card">
+                <h3>Research Desk</h3>
+                <p>
+                  The Conspiracy Researcher app organizes theories, timelines, sources, summaries, and saved dossiers.
+                </p>
+                <a class="btn secondary" href="https://troublez905.github.io/Conspiracy-Researcher/" target="_blank" rel="noopener">Open app <span>→</span></a>
+                <small>Live on GitHub Pages</small>
               </article>
             </div>
           </div>
@@ -1234,6 +1280,7 @@
             <a href="#branded-worldwide">Branded Worldwide</a>
             <a href="#wallrank">WallRank</a>
             <a href="#neon-city">Neon City</a>
+            <a href="https://troublez905.github.io/Conspiracy-Researcher/" target="_blank" rel="noopener">Research Desk</a>
           </div>
         </div>
         <div>

@@ -108,9 +108,9 @@
 
       .nav-links {
         display: flex;
-        gap: clamp(14px, 2.4vw, 34px);
+        gap: clamp(10px, 1.7vw, 22px);
         color: var(--chrome);
-        font-size: 0.78rem;
+        font-size: 0.74rem;
         font-weight: 800;
         letter-spacing: 0.08em;
         text-transform: uppercase;
@@ -604,6 +604,171 @@
         height: auto;
       }
 
+      .content-section {
+        width: min(1180px, 100%);
+        margin: clamp(52px, 8vw, 104px) auto;
+        padding: 0 28px;
+      }
+
+      .section-kicker {
+        display: inline-block;
+        margin-bottom: 14px;
+        color: var(--green);
+        font-family: ui-monospace, Consolas, monospace;
+        font-size: 0.8rem;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .section-title {
+        margin: 0;
+        font-family: var(--font-display);
+        font-size: clamp(3.4rem, 8vw, 8.8rem);
+        line-height: 0.82;
+        text-transform: uppercase;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.86fr) minmax(320px, 0.54fr);
+        gap: clamp(22px, 5vw, 58px);
+        align-items: start;
+      }
+
+      .about-copy {
+        margin-top: 24px;
+        color: #d7d4ca;
+        font-size: clamp(1rem, 1.55vw, 1.24rem);
+        line-height: 1.56;
+      }
+
+      .about-copy strong {
+        color: var(--paper);
+      }
+
+      .manifesto-panel {
+        padding: clamp(22px, 4vw, 34px);
+        border: 1px solid rgba(255, 23, 23, 0.5);
+        background:
+          linear-gradient(135deg, rgba(255, 23, 23, 0.16), transparent 46%),
+          rgba(255, 255, 255, 0.035);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+      }
+
+      .manifesto-panel h3 {
+        margin: 0 0 16px;
+        color: var(--red);
+        font-family: ui-monospace, Consolas, monospace;
+        font-size: 0.82rem;
+        text-transform: uppercase;
+      }
+
+      .manifesto-list {
+        display: grid;
+        gap: 14px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .manifesto-list li {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 12px;
+        color: var(--paper);
+        font-size: 1rem;
+        line-height: 1.35;
+      }
+
+      .manifesto-list span {
+        color: var(--green);
+        font-family: var(--font-display);
+      }
+
+      .gameplan {
+        border-block: 1px solid var(--line);
+        padding-block: clamp(48px, 7vw, 88px);
+        background:
+          linear-gradient(90deg, rgba(132, 255, 18, 0.08), transparent 48%),
+          repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 74px);
+      }
+
+      .gameplan-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+        margin-top: 28px;
+      }
+
+      .phase-card {
+        min-height: 240px;
+        padding: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        background: rgba(3, 3, 3, 0.72);
+        display: grid;
+        align-content: space-between;
+      }
+
+      .phase-card span {
+        color: var(--green);
+        font-family: ui-monospace, Consolas, monospace;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+      }
+
+      .phase-card h3 {
+        margin: 18px 0 10px;
+        color: var(--paper);
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 3.4vw, 3.2rem);
+        line-height: 0.9;
+        text-transform: uppercase;
+      }
+
+      .phase-card p {
+        margin: 0;
+        color: #d7d4ca;
+        line-height: 1.45;
+      }
+
+      .link-card-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        margin-top: 26px;
+      }
+
+      .link-card {
+        min-height: 190px;
+        padding: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 52%),
+          #050505;
+      }
+
+      .link-card h3 {
+        margin: 0 0 10px;
+        font-family: var(--font-display);
+        font-size: clamp(2.2rem, 4.2vw, 4.2rem);
+        line-height: 0.9;
+        text-transform: uppercase;
+      }
+
+      .link-card p {
+        color: #d7d4ca;
+        line-height: 1.45;
+      }
+
+      .link-card small {
+        display: block;
+        margin-top: 14px;
+        color: var(--muted);
+        font-family: ui-monospace, Consolas, monospace;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+      }
+
       .signal-tile {
         min-height: 160px;
         padding: 18px;
@@ -724,6 +889,9 @@
         .hero-subline,
         .zone,
         .network,
+        .about-grid,
+        .gameplan-grid,
+        .link-card-grid,
         .footer {
           grid-template-columns: 1fr;
         }
@@ -750,6 +918,10 @@
         }
 
         .network {
+          padding-inline: 18px;
+        }
+
+        .content-section {
           padding-inline: 18px;
         }
 
@@ -802,6 +974,8 @@
           <a href="#wallrank">Ranks</a>
           <a href="#wallrank">Maps</a>
           <a href="#neon-city">Events</a>
+          <a href="#about">About</a>
+          <a href="#gameplan">Gameplan</a>
           <a href="#network">World</a>
         </div>
         <div class="signal" aria-label="Signal status online">Signal Online</div>
@@ -850,7 +1024,7 @@
                 A playground for misfits, dreamers, builders, dancers, skaters, editors, and rule-breakers
                 creating outside the approved path.
               </p>
-              <a class="btn secondary" href="#404-kidz">Explore 404 <span>→</span></a>
+              <a class="btn secondary" href="#about">Build 404 <span>→</span></a>
             </div>
             <div class="zone-panel">
               <div class="mini-panel">
@@ -892,7 +1066,7 @@
                 Streets decide. Artists, crews, stores, venues, and spots get mapped by the culture so the
                 city can find what is real.
               </p>
-              <a class="btn secondary" href="#wallrank">Explore map <span>→</span></a>
+              <a class="btn secondary" href="#gameplan">Open WallRank <span>→</span></a>
             </div>
             <div class="zone-panel">
               <div class="mini-panel">
@@ -955,6 +1129,94 @@
             </figure>
           </div>
         </section>
+
+        <section class="content-section about-grid" id="about" aria-label="About Troublez Online World">
+          <div>
+            <span class="section-kicker">About us / The world</span>
+            <h2 class="section-title">Built from the block up</h2>
+            <div class="about-copy">
+              <p>
+                <strong>Troublez Online World</strong> is the front door for a connected street-culture network:
+                youth creativity, clothing, music, local rankings, city maps, events, visuals, and future digital spaces
+                all moving under one signal.
+              </p>
+              <p>
+                The goal is to turn separate ideas into one ecosystem. 404 KiDZ gives young creators a place to build.
+                Branded Worldwide gives the movement a uniform. WallRank maps what is active in the streets. Neon City
+                gives the world sound, visuals, events, and late-night energy.
+              </p>
+              <p>
+                This site is the hub. As each project grows, Troublez Online World becomes the directory, launchpad,
+                and broadcast channel that connects the audience to every drop, ranking, event, story, and new portal.
+              </p>
+            </div>
+          </div>
+          <aside class="manifesto-panel">
+            <h3>Operating code</h3>
+            <ul class="manifesto-list">
+              <li><span>01</span><strong>Protect the youth and give creators room to move.</strong></li>
+              <li><span>02</span><strong>Make local culture visible before outsiders define it.</strong></li>
+              <li><span>03</span><strong>Connect clothing, music, rankings, maps, and events into one world.</strong></li>
+              <li><span>04</span><strong>Build in public, improve every drop, and keep the signal alive.</strong></li>
+            </ul>
+          </aside>
+        </section>
+
+        <section class="gameplan" id="gameplan" aria-label="Troublez Online World gameplan">
+          <div class="content-section">
+            <span class="section-kicker">Gameplan / Rollout path</span>
+            <h2 class="section-title">What we build next</h2>
+            <div class="gameplan-grid">
+              <article class="phase-card">
+                <div>
+                  <span>Phase 01 / Foundation</span>
+                  <h3>World hub</h3>
+                  <p>Keep this site as the main signal with project links, launch updates, creator calls, and movement news.</p>
+                </div>
+              </article>
+              <article class="phase-card">
+                <div>
+                  <span>Phase 02 / Youth platform</span>
+                  <h3>404 KiDZ</h3>
+                  <p>Create the 404 KiDZ home for young creators, challenges, showcases, team stories, and future drops.</p>
+                </div>
+              </article>
+              <article class="phase-card">
+                <div>
+                  <span>Phase 03 / Local discovery</span>
+                  <h3>WallRank</h3>
+                  <p>Connect rankings, maps, profiles, and city submissions so people can find what is active and real.</p>
+                </div>
+              </article>
+              <article class="phase-card">
+                <div>
+                  <span>Phase 04 / Culture engine</span>
+                  <h3>Drops + events</h3>
+                  <p>Tie Branded Worldwide and Neon City into clothing drops, visuals, music nights, and online experiences.</p>
+                </div>
+              </article>
+            </div>
+
+            <div class="link-card-grid" aria-label="Project links">
+              <article class="link-card">
+                <h3>404 KiDZ</h3>
+                <p>
+                  The youth creativity branch for showcases, challenges, crew features, tutorials, and future community programs.
+                </p>
+                <a class="btn secondary" href="#404-kidz">View 404 plan <span>→</span></a>
+                <small>External site link pending</small>
+              </article>
+              <article class="link-card">
+                <h3>WallRank</h3>
+                <p>
+                  The ranking and map layer for local scenes, artists, crews, stores, venues, and culture signals.
+                </p>
+                <a class="btn secondary" href="#wallrank">View WallRank plan <span>→</span></a>
+                <small>Public site link pending</small>
+              </article>
+            </div>
+          </div>
+        </section>
       </main>
 
       <footer class="footer">
@@ -977,10 +1239,10 @@
         <div>
           <h4>Signal</h4>
           <div class="footer-links">
+            <a href="#about">About</a>
+            <a href="#gameplan">Gameplan</a>
             <a href="#network">Maps</a>
             <a href="#network">Ranks</a>
-            <a href="#network">Scenes</a>
-            <a href="#network">Events</a>
           </div>
         </div>
         <div>
